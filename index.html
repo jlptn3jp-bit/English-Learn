@@ -598,6 +598,195 @@ nav{
 }
 .mobile-nav-btn:hover{background:var(--rose-light);color:var(--rose-dark)}
 .mobile-nav-close{position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;font-size:22px;color:var(--text2)}
+
+/* ══ SYLLABUS SYSTEM ══ */
+
+/* Sub-page navigation breadcrumb */
+.syl-breadcrumb{
+  display:flex;align-items:center;gap:6px;margin-bottom:1.25rem;
+  font-size:12px;color:var(--text2);flex-wrap:wrap;
+}
+.syl-breadcrumb .bc-link{
+  color:var(--rose-dark);cursor:pointer;font-weight:500;
+  background:none;border:none;padding:0;font-family:'DM Sans',sans-serif;font-size:12px;
+  transition:color .15s;
+}
+.syl-breadcrumb .bc-link:hover{color:var(--rose)}
+.syl-breadcrumb .bc-sep{color:var(--text3);font-size:10px}
+.syl-breadcrumb .bc-cur{font-weight:600;color:var(--text)}
+
+/* Sub-pages within syllabus */
+.syl-page{display:none}
+.syl-page.active{display:block;animation:fadeUp .25s ease both}
+
+/* ── INDEX PAGE ── */
+.syl-search-bar{
+  display:flex;gap:10px;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;
+}
+.syl-search{
+  flex:1;min-width:200px;padding:.7rem 1.1rem .7rem 2.5rem;
+  border:1.5px solid var(--border);border-radius:24px;
+  font-size:.875rem;outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%239A8890' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat .85rem center;
+  transition:border-color .2s,box-shadow .2s;
+}
+.syl-search:focus{border-color:var(--rose-mid);box-shadow:0 0 0 3px rgba(200,69,106,.08)}
+.syl-ctrl-btns{display:flex;gap:6px}
+.syl-ctrl-btn{
+  border:1px solid var(--border);background:#fff;padding:7px 15px;
+  border-radius:20px;font-size:12px;cursor:pointer;color:var(--text2);
+  transition:all .18s;white-space:nowrap;font-weight:500;
+}
+.syl-ctrl-btn:hover{background:var(--rose-light);border-color:var(--rose-mid);color:var(--rose-dark)}
+.syl-ctrl-btn.active{background:var(--rose-light);border-color:var(--rose-mid);color:var(--rose-dark);font-weight:600}
+
+/* Level folder cards on index */
+.syl-level-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:1.75rem}
+.syl-level-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;transition:border-color .22s,box-shadow .22s,transform .18s;
+  cursor:pointer;
+}
+.syl-level-card:hover{border-color:var(--rose-mid);box-shadow:var(--shadow-hover);transform:translateY(-3px)}
+.syl-level-card:active{transform:translateY(-1px)}
+.syl-lc-header{
+  display:flex;align-items:center;gap:13px;padding:1.1rem 1.25rem;
+}
+.syl-lc-icon{
+  width:46px;height:46px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.syl-lc-title{font-size:15px;font-weight:700;margin-bottom:3px}
+.syl-lc-desc{font-size:11.5px;color:var(--text2);line-height:1.5}
+.syl-lc-footer{
+  border-top:1px solid var(--border);padding:.65rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg);
+}
+.syl-lc-pills{display:flex;gap:5px;flex-wrap:wrap}
+.syl-lc-pill{
+  font-size:10px;padding:2px 9px;border-radius:12px;
+  border:1px solid var(--border);color:var(--text2);background:#fff;font-weight:500;
+}
+.syl-lc-arrow{font-size:15px;color:var(--text3);transition:transform .18s}
+.syl-level-card:hover .syl-lc-arrow{transform:translateX(4px);color:var(--rose)}
+
+/* ── LEVEL DETAIL PAGE ── */
+.syl-detail-hero{
+  background:linear-gradient(135deg,#fff 0%,var(--rose-light) 60%,#f0eeff 100%);
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:1.5rem 1.75rem;margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:18px;
+}
+.syl-detail-emoji{font-size:48px;line-height:1;flex-shrink:0}
+.syl-detail-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;margin-bottom:4px}
+.syl-detail-sub{font-size:13px;color:var(--text2);line-height:1.65;max-width:520px}
+.syl-detail-stats{display:flex;gap:8px;margin-top:.75rem;flex-wrap:wrap}
+.syl-stat-pill{
+  font-size:11px;padding:3px 11px;border-radius:14px;font-weight:600;
+  border:1px solid;
+}
+
+/* Section tab bar */
+.syl-section-tabs{
+  display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap;
+  border-bottom:2px solid var(--border);padding-bottom:.75rem;
+}
+.syl-stab{
+  border:1px solid var(--border);background:#fff;padding:6px 15px;
+  border-radius:20px;font-size:12px;cursor:pointer;color:var(--text2);
+  transition:all .15s;font-weight:500;
+}
+.syl-stab:hover{background:var(--bg3);color:var(--text);border-color:var(--border2)}
+.syl-stab.active{background:var(--rose-light);border-color:var(--rose-mid);color:var(--rose-dark);font-weight:600}
+
+/* Section panel inside level detail */
+.syl-section-panel{display:none}
+.syl-section-panel.active{display:block;animation:fadeUp .2s ease both}
+
+/* Topic chips — clickable, link to grammar/vocab */
+.syl-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:1rem}
+.syl-chip{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  padding:.65rem 1rem;display:flex;align-items:center;gap:10px;
+  transition:all .2s;position:relative;overflow:hidden;
+}
+.syl-chip.linkable{cursor:pointer}
+.syl-chip.linkable:hover{border-color:var(--rose-mid);background:var(--rose-light);transform:translateX(4px);box-shadow:var(--shadow)}
+.syl-chip.linkable:active{transform:translateX(2px)}
+.syl-chip::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--chip-accent,var(--border));border-radius:3px 0 0 3px;
+}
+.syl-chip-icon{
+  width:28px;height:28px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+}
+.syl-chip-text{flex:1}
+.syl-chip-name{font-size:12.5px;font-weight:600;line-height:1.3;margin-bottom:2px}
+.syl-chip-meta{font-size:10.5px;color:var(--text2)}
+.syl-chip-arrow{
+  font-size:11px;color:var(--text3);transition:transform .15s,color .15s;flex-shrink:0;
+}
+.syl-chip.linkable:hover .syl-chip-arrow{transform:translateX(3px);color:var(--rose-dark)}
+
+/* Non-linkable plain topics */
+.syl-plain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:6px;margin-bottom:1rem}
+.syl-plain-chip{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:.5rem .85rem;font-size:12px;color:var(--text);
+  display:flex;align-items:center;gap:7px;
+  transition:background .15s,border-color .15s;
+}
+.syl-plain-chip:hover{background:var(--rose-light);border-color:var(--rose-mid)}
+.syl-plain-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+/* Section heading inside panel */
+.syl-panel-heading{
+  font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--text3);margin:1.1rem 0 .6rem;padding-bottom:.35rem;
+  border-bottom:1px dashed var(--border);display:flex;align-items:center;gap:6px;
+}
+
+/* Linked grammar card preview */
+.syl-grammar-preview{
+  background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-lg);
+  padding:1rem 1.25rem;margin-bottom:8px;
+  transition:border-color .2s,box-shadow .2s,transform .15s;cursor:pointer;
+}
+.syl-grammar-preview:hover{border-color:var(--rose-mid);box-shadow:var(--shadow);transform:translateX(4px)}
+.syl-gp-title{font-size:13.5px;font-weight:600;margin-bottom:.3rem;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.syl-gp-rule{font-size:12px;color:var(--text2);line-height:1.6}
+.syl-gp-ex{
+  font-size:11.5px;margin-top:.5rem;background:var(--rose-light);
+  border-left:3px solid var(--rose);padding:.4rem .7rem;border-radius:0 6px 6px 0;
+  font-style:italic;color:var(--text);
+}
+.syl-gp-ex span{color:var(--rose-dark);font-weight:600;font-style:normal}
+.syl-view-all-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--rose);color:#fff;border:none;padding:9px 22px;
+  border-radius:var(--radius-sm);font-size:12.5px;cursor:pointer;font-weight:500;
+  transition:background .18s,transform .1s,box-shadow .18s;
+  box-shadow:0 2px 8px rgba(200,69,106,.26);margin-top:.75rem;
+}
+.syl-view-all-btn:hover{background:var(--rose-dark);box-shadow:0 4px 14px rgba(200,69,106,.38)}
+.syl-view-all-btn:active{transform:scale(.97)}
+
+/* Linked vocab word preview */
+.syl-vocab-row{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  padding:.8rem 1.1rem;display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:7px;transition:border-color .2s,transform .15s;cursor:pointer;
+}
+.syl-vocab-row:hover{border-color:var(--rose-mid);transform:translateX(3px)}
+.syl-vr-word{font-size:15px;font-weight:600;margin-bottom:2px}
+.syl-vr-ipa{font-size:11px;color:var(--rose);font-style:italic;margin-bottom:3px}
+.syl-vr-def{font-size:12px;color:var(--text2)}
+.syl-vr-meta{text-align:right;flex-shrink:0;margin-left:10px}
+
+/* highlight flash when navigated to */
+@keyframes hlFlash{0%{background:rgba(200,69,106,.18)}100%{background:transparent}}
+.hl-flash{animation:hlFlash .9s ease}
 </style>
 </head>
 <body>
@@ -615,6 +804,7 @@ nav{
     <button class="nav-btn" onclick="goPage('grammar')">Grammar</button>
     <button class="nav-btn" onclick="goPage('vocab')">Vocabulary</button>
     <button class="nav-btn" onclick="goPage('quiz')">Quiz</button>
+    <button class="nav-btn" onclick="goPage('syllabus')">Syllabus</button>
     <button class="nav-btn" onclick="goPage('dashboard')">Dashboard</button>
   </div>
   <div class="nav-right">
@@ -642,6 +832,7 @@ nav{
   <button class="mobile-nav-btn" onclick="goPage('grammar');toggleMobileNav()">Grammar</button>
   <button class="mobile-nav-btn" onclick="goPage('vocab');toggleMobileNav()">Vocabulary</button>
   <button class="mobile-nav-btn" onclick="goPage('quiz');toggleMobileNav()">Quiz</button>
+  <button class="mobile-nav-btn" onclick="goPage('syllabus');toggleMobileNav()">Syllabus</button>
   <button class="mobile-nav-btn" onclick="goPage('dashboard');toggleMobileNav()">Dashboard</button>
 </div>
 
@@ -1028,6 +1219,47 @@ nav{
       <div id="level-overview-list"></div>
     </div>
   </div>
+</div>
+
+<!-- ── SYLLABUS (multi-page) ── -->
+<div class="page" id="page-syllabus">
+
+  <!-- BREADCRUMB -->
+  <div class="syl-breadcrumb" id="syl-breadcrumb">
+    <span class="bc-cur">📋 Full Syllabus</span>
+  </div>
+
+  <!-- ── INDEX page ── -->
+  <div class="syl-page active" id="syl-index">
+    <p class="section-title" style="margin-bottom:.35rem">Full CEFR Syllabus</p>
+    <p class="section-sub" style="margin-bottom:1.25rem">Seven complete levels from Starter to C2 — click any level to explore its grammar, vocabulary, pronunciation, and skills. Linked topics jump directly to the Grammar or Vocabulary sections.</p>
+
+    <div class="syl-search-bar">
+      <input class="syl-search" type="text" id="syl-search-input" placeholder="Search topics, grammar rules, vocabulary…" oninput="sylSearch(this.value)"/>
+      <div class="syl-ctrl-btns">
+        <button class="syl-ctrl-btn" onclick="sylFilterSection('all',this)">All</button>
+        <button class="syl-ctrl-btn" onclick="sylFilterSection('grammar',this)">Grammar</button>
+        <button class="syl-ctrl-btn" onclick="sylFilterSection('vocab',this)">Vocabulary</button>
+        <button class="syl-ctrl-btn" onclick="sylFilterSection('skills',this)">Skills</button>
+      </div>
+    </div>
+
+    <!-- Search results panel (hidden by default) -->
+    <div id="syl-search-results" style="display:none;margin-bottom:1.5rem">
+      <div class="syl-panel-heading">🔍 Search Results</div>
+      <div id="syl-results-list"></div>
+    </div>
+
+    <div class="syl-level-grid" id="syl-level-cards"></div>
+  </div>
+
+  <!-- ── LEVEL DETAIL page ── -->
+  <div class="syl-page" id="syl-detail">
+    <div class="syl-detail-hero" id="syl-detail-hero"></div>
+    <div class="syl-section-tabs" id="syl-section-tabs"></div>
+    <div id="syl-section-panels"></div>
+  </div>
+
 </div>
 
 <!-- ══════════════════════════════════ SCRIPTS ══════════════════════════════════ -->
@@ -2077,6 +2309,798 @@ initQuiz();
 buildDashboard();
 // Reset to home
 goPage('home');
+
+
+// ═══════════════════════════════
+//  SYLLABUS — Multi-page system
+// ═══════════════════════════════
+
+// ── Full syllabus data ──
+const sylData = [
+  {
+    key:'starter', emoji:'🌱', label:'Starter', badge:'starter',
+    color:'var(--teal)', bg:'var(--teal-light)', dotColor:'#1B7A6F',
+    desc:'Absolute beginner — alphabet, letters, sounds, first greetings and numbers',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'Subject Pronouns', link:'grammar', lvl:'starter'},
+          {name:'Singular & Plural Nouns', link:'grammar', lvl:'starter'},
+          {name:'Articles: A, An, The', link:'grammar', lvl:'starter'},
+          {name:'Basic greetings & introductions', link:null},
+          {name:'Numbers, dates & time', link:'vocab', cat:'Numbers', lvl:'starter'},
+          {name:'Days / months / seasons', link:null},
+          {name:'Basic frequency adverbs', link:null},
+          {name:'Like / dislike expressions', link:null},
+          {name:'Basic object pronouns', link:null},
+          {name:'Demonstratives (this/that/these/those)', link:null},
+          {name:'Wh-questions', link:null},
+          {name:'Basic conjunctions', link:null},
+          {name:'Simple requests', link:null},
+          {name:'Common contractions', link:null},
+          {name:'Survival English patterns', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Greetings & Farewells', link:'vocab', cat:'Greetings', lvl:'starter'},
+          {name:'Numbers 1–20', link:'vocab', cat:'Numbers', lvl:'starter'},
+          {name:'Colors', link:'vocab', cat:'Colors', lvl:'starter'},
+          {name:'Animals', link:'vocab', cat:'Animals', lvl:'starter'},
+          {name:'Food & Drink basics', link:'vocab', cat:'Food', lvl:'starter'},
+          {name:'Body parts', link:'vocab', cat:'Body', lvl:'starter'},
+          {name:'Nature words', link:'vocab', cat:'Nature', lvl:'starter'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Alphabet sounds A–Z'},
+          {name:'Basic IPA symbols'},
+          {name:'Word stress basics'},
+          {name:'Silent letters'},
+          {name:'Basic intonation'},
+          {name:'Basic connected speech'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Communication', type:'plain',
+        topics:[
+          {name:'Ordering food'},
+          {name:'Introducing yourself'},
+          {name:'Asking directions'},
+          {name:'Shopping phrases'},
+          {name:'Hotel communication'},
+          {name:'Basic social expressions'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing & Reading', type:'plain',
+        topics:[
+          {name:'Simple messages & notes'},
+          {name:'Reading single sentences'},
+          {name:'Recognising common signs'},
+        ]
+      },
+    ]
+  },
+  {
+    key:'a1', emoji:'☀️', label:'A1 — Beginner', badge:'a1',
+    color:'var(--blue)', bg:'var(--blue-light)', dotColor:'#1E5FA8',
+    desc:'Introduce yourself, ask simple questions, talk about family and routines',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'The Verb "To Be"', link:'grammar', lvl:'a1'},
+          {name:'Simple Present', link:'grammar', lvl:'a1'},
+          {name:'There is / There are', link:'grammar', lvl:'a1'},
+          {name:'Used to (introduction)', link:null},
+          {name:'Too / enough', link:null},
+          {name:'So / such', link:null},
+          {name:'Reflexive pronouns', link:null},
+          {name:'Indefinite pronouns', link:null},
+          {name:'Compound nouns', link:null},
+          {name:'Basic participles', link:null},
+          {name:'Preference structures', link:null},
+          {name:'Permission & prohibition language', link:null},
+          {name:'Simple speculation', link:null},
+          {name:'Sequencing expressions', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Family & relationships', link:'vocab', cat:'Family', lvl:'a1'},
+          {name:'Places (home)', link:'vocab', cat:'Places', lvl:'a1'},
+          {name:'Everyday objects', link:'vocab', cat:'Objects', lvl:'a1'},
+          {name:'Transport', link:'vocab', cat:'Transport', lvl:'a1'},
+          {name:'Adjectives (size/speed)', link:'vocab', cat:'Adjectives', lvl:'a1'},
+          {name:'Action verbs', link:'vocab', cat:'Actions', lvl:'a1'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Vowel sound groups'},
+          {name:'Consonant sounds'},
+          {name:'Word endings (-s, -ed, -ing)'},
+          {name:'Rising & falling intonation'},
+          {name:'Question intonation'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Communication', type:'plain',
+        topics:[
+          {name:'Giving personal information'},
+          {name:'Talking about family'},
+          {name:'Describing daily routine'},
+          {name:'Telling the time'},
+          {name:'Talking about the weather'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing', type:'plain',
+        topics:[
+          {name:'Simple emails'},
+          {name:'Short personal notes'},
+          {name:'Filling in forms'},
+        ]
+      },
+    ]
+  },
+  {
+    key:'a2', emoji:'🌤️', label:'A2 — Elementary', badge:'a2',
+    color:'var(--amber)', bg:'var(--amber-light)', dotColor:'#B86A0F',
+    desc:'Describe experiences, express opinions, discuss routines and future plans',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'Present Continuous', link:'grammar', lvl:'a2'},
+          {name:'Past Simple', link:'grammar', lvl:'a2'},
+          {name:'Object Pronouns', link:'grammar', lvl:'a2'},
+          {name:'Future: going to', link:null},
+          {name:'Future: will (predictions)', link:null},
+          {name:'Countable & uncountable nouns', link:null},
+          {name:'Much / many / a lot of', link:null},
+          {name:'Comparative adjectives', link:null},
+          {name:'Superlative adjectives', link:null},
+          {name:'Time clauses (when, after, before)', link:null},
+          {name:'Everyday spoken reductions', link:null},
+          {name:'Common informal speech patterns', link:null},
+          {name:'Email writing basics', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Travel & transport', link:'vocab', cat:'Travel', lvl:'a2'},
+          {name:'Places (city)', link:'vocab', cat:'Places', lvl:'a2'},
+          {name:'Food & cooking', link:'vocab', cat:'Food', lvl:'a2'},
+          {name:'Adjectives (quality)', link:'vocab', cat:'Adjectives', lvl:'a2'},
+          {name:'Action verbs (A2)', link:'vocab', cat:'Actions', lvl:'a2'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Past tense -ed endings'},
+          {name:'Stress in compound nouns'},
+          {name:'Weak forms (a, the, of)'},
+          {name:'Linking sounds'},
+          {name:'Schwa /ə/ sound'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Communication', type:'plain',
+        topics:[
+          {name:'Giving opinions'},
+          {name:'Explaining problems'},
+          {name:'Shopping negotiation'},
+          {name:'Asking for & giving directions'},
+          {name:'Ordering at a restaurant'},
+          {name:'Describing people & places'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing', type:'plain',
+        topics:[
+          {name:'Daily diary entries'},
+          {name:'Short descriptive paragraphs'},
+          {name:'Informal emails & messages'},
+        ]
+      },
+    ]
+  },
+  {
+    key:'b1', emoji:'⛅', label:'B1 — Intermediate', badge:'b1',
+    color:'#B84A0F', bg:'#FFF0EB', dotColor:'#B84A0F',
+    desc:'Handle travel situations, discuss familiar topics, write simple connected text',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'Present Perfect', link:'grammar', lvl:'b1'},
+          {name:'Modal Verbs', link:'grammar', lvl:'b1'},
+          {name:'Comparative Adjectives', link:'grammar', lvl:'b1'},
+          {name:'First & Second Conditionals', link:null},
+          {name:'Wish structures', link:null},
+          {name:'Unreal past', link:null},
+          {name:'Future perfect (introduction)', link:null},
+          {name:'Indirect questions', link:null},
+          {name:'Defining / non-defining clauses', link:null},
+          {name:'Cleft sentences (introduction)', link:null},
+          {name:'Emphasis structures', link:null},
+          {name:'Softening language', link:null},
+          {name:'Polite disagreement', link:null},
+          {name:'Debate structures', link:null},
+          {name:'Conversation repair strategies', link:null},
+          {name:'Spoken fluency connectors', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Work & careers', link:'vocab', cat:'Work', lvl:'b1'},
+          {name:'Adjectives (B1)', link:'vocab', cat:'Adjectives', lvl:'b1'},
+          {name:'Connectives (B1)', link:'vocab', cat:'Connectives', lvl:'b1'},
+          {name:'Adverbs (B1)', link:'vocab', cat:'Adverbs', lvl:'b1'},
+          {name:'Actions (B1)', link:'vocab', cat:'Actions', lvl:'b1'},
+          {name:'Culture vocabulary', link:'vocab', cat:'Culture', lvl:'b1'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Sentence stress patterns'},
+          {name:'Rhythm in English'},
+          {name:'Reduction patterns'},
+          {name:'Accent awareness'},
+          {name:'Weak forms in fast speech'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Communication', type:'plain',
+        topics:[
+          {name:'Giving & justifying opinions'},
+          {name:'Storytelling'},
+          {name:'Socialising & small talk'},
+          {name:'Negotiating simple agreements'},
+          {name:'Making complaints politely'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing', type:'plain',
+        topics:[
+          {name:'Opinion essays'},
+          {name:'Formal emails'},
+          {name:'Reviews (films, books)'},
+          {name:'Narrative writing'},
+          {name:'Reports (simple)'},
+        ]
+      },
+      { id:'listening', icon:'👂', title:'Reading & Listening', type:'plain',
+        topics:[
+          {name:'Skimming for gist'},
+          {name:'Scanning for specific info'},
+          {name:'Inference from context'},
+          {name:'Native-speed comprehension (graded)'},
+          {name:'Podcast comprehension (graded)'},
+        ]
+      },
+    ]
+  },
+  {
+    key:'b2', emoji:'🌬️', label:'B2 — Upper-Intermediate', badge:'b2',
+    color:'var(--violet)', bg:'var(--violet-light)', dotColor:'#5B3EA8',
+    desc:'Interact fluently, write clear detailed text, understand complex ideas',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'Passive Voice', link:'grammar', lvl:'b2'},
+          {name:'Second Conditional', link:'grammar', lvl:'b2'},
+          {name:'Reported Speech', link:'grammar', lvl:'b2'},
+          {name:'Future Perfect Continuous', link:null},
+          {name:'Advanced wishes & regrets', link:null},
+          {name:'Ellipsis', link:null},
+          {name:'Advanced determiners', link:null},
+          {name:'Fronting', link:null},
+          {name:'Parallel structures', link:null},
+          {name:'Advanced quantifiers', link:null},
+          {name:'Speculation & deduction', link:null},
+          {name:'Persuasive language', link:null},
+          {name:'Presentation English', link:null},
+          {name:'Negotiation language', link:null},
+          {name:'Formal discussion structures', link:null},
+          {name:'Academic argument structures', link:null},
+          {name:'Tone control', link:null},
+          {name:'Advanced spoken discourse', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Adjectives (B2)', link:'vocab', cat:'Adjectives', lvl:'b2'},
+          {name:'Abstract nouns (B2)', link:'vocab', cat:'Abstract', lvl:'b2'},
+          {name:'Connectives (B2)', link:'vocab', cat:'Connectives', lvl:'b2'},
+          {name:'Adverbs (B2)', link:'vocab', cat:'Adverbs', lvl:'b2'},
+          {name:'Actions (B2)', link:'vocab', cat:'Actions', lvl:'b2'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Pragmatic intonation (sarcasm, emphasis)'},
+          {name:'Fast speech decoding'},
+          {name:'Linking & assimilation'},
+          {name:'Stress-timed rhythm mastery'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Communication', type:'plain',
+        topics:[
+          {name:'Academic presentations'},
+          {name:'Professional meetings'},
+          {name:'Debate participation'},
+          {name:'Conflict resolution language'},
+          {name:'Networking English'},
+          {name:'Business email mastery'},
+          {name:'Negotiation strategies'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing', type:'plain',
+        topics:[
+          {name:'Formal reports'},
+          {name:'Argumentative essays'},
+          {name:'Business letters'},
+          {name:'Summaries & abstracts'},
+          {name:'Editorial writing'},
+        ]
+      },
+      { id:'listening', icon:'👂', title:'Reading & Listening', type:'plain',
+        topics:[
+          {name:'Tone & bias detection'},
+          {name:'Academic reading strategies'},
+          {name:'Multi-speaker conversation tracking'},
+          {name:'Lecture comprehension'},
+          {name:'Inferring implied meaning'},
+        ]
+      },
+    ]
+  },
+  {
+    key:'c1', emoji:'🌪️', label:'C1 — Advanced', badge:'c1',
+    color:'var(--red)', bg:'var(--red-light)', dotColor:'#A02828',
+    desc:'Express spontaneously, use language flexibly, produce complex, structured text',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'Inversion for Emphasis', link:'grammar', lvl:'c1'},
+          {name:'Mixed Conditionals', link:'grammar', lvl:'c1'},
+          {name:'Cleft Sentences', link:'grammar', lvl:'c1'},
+          {name:'Advanced reduced clauses', link:null},
+          {name:'Metadiscourse', link:null},
+          {name:'Stance language', link:null},
+          {name:'Evaluative language', link:null},
+          {name:'Pragmatic softening', link:null},
+          {name:'Advanced coherence systems', link:null},
+          {name:'Citation & reporting language', link:null},
+          {name:'Abstract noun structures', link:null},
+          {name:'Sophisticated sentence rhythm', link:null},
+          {name:'Professional diplomacy language', link:null},
+          {name:'Advanced hedging', link:null},
+          {name:'Semantic nuance', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Adjectives (C1)', link:'vocab', cat:'Adjectives', lvl:'c1'},
+          {name:'Abstract nouns (C1)', link:'vocab', cat:'Abstract', lvl:'c1'},
+          {name:'Actions (C1)', link:'vocab', cat:'Actions', lvl:'c1'},
+          {name:'Advanced vocabulary', link:'vocab', cat:'Adjectives', lvl:'c1'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Native-level intonation patterns'},
+          {name:'Emotional intonation'},
+          {name:'Persuasive speech delivery'},
+          {name:'Regional pronunciation exposure (UK/US/AUS)'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Communication', type:'plain',
+        topics:[
+          {name:'Leadership communication'},
+          {name:'Public speaking'},
+          {name:'Conflict mediation'},
+          {name:'High-stakes negotiation'},
+          {name:'Corporate communication'},
+          {name:'Interview English (advanced)'},
+          {name:'Critical academic discussion'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing', type:'plain',
+        topics:[
+          {name:'Academic essays (advanced)'},
+          {name:'Research papers'},
+          {name:'Professional reports'},
+          {name:'Critical analysis'},
+          {name:'Persuasive rhetoric'},
+        ]
+      },
+      { id:'professional', icon:'💼', title:'Professional Modules', type:'plain',
+        topics:[
+          {name:'Business English mastery'},
+          {name:'Corporate communication'},
+          {name:'Interview preparation'},
+          {name:'CV / résumé language'},
+          {name:'Meeting facilitation'},
+          {name:'Presentation mastery'},
+          {name:'Customer service English'},
+        ]
+      },
+    ]
+  },
+  {
+    key:'c2', emoji:'⚡', label:'C2 — Proficient', badge:'c2',
+    color:'#8A6800', bg:'var(--gold-light)', dotColor:'#8A6800',
+    desc:'Near-native mastery — style, rhetoric, cultural nuance and literary expression',
+    sections:[
+      { id:'grammar', icon:'📐', title:'Grammar', type:'grammar',
+        topics:[
+          {name:'Subjunctive Mood', link:'grammar', lvl:'c2'},
+          {name:'Ellipsis & Substitution', link:'grammar', lvl:'c2'},
+          {name:'Discourse Cohesion', link:'grammar', lvl:'c2'},
+          {name:'Irony & sarcasm structures', link:null},
+          {name:'Rhetorical manipulation', link:null},
+          {name:'Stylistic compression', link:null},
+          {name:'Literary rhetoric', link:null},
+          {name:'Subtext interpretation', link:null},
+          {name:'Pragmatic inference', link:null},
+          {name:'Cultural implication structures', link:null},
+          {name:'Advanced humor mechanisms', link:null},
+          {name:'Native-like conversational pacing', link:null},
+          {name:'Register blending', link:null},
+          {name:'Dialectal flexibility', link:null},
+          {name:'High-level debate rhetoric', link:null},
+          {name:'Advanced storytelling structures', link:null},
+          {name:'Cognitive framing language', link:null},
+        ]
+      },
+      { id:'vocab', icon:'📚', title:'Vocabulary', type:'vocab',
+        topics:[
+          {name:'Adjectives (C2)', link:'vocab', cat:'Adjectives', lvl:'c2'},
+          {name:'Abstract nouns (C2)', link:'vocab', cat:'Abstract', lvl:'c2'},
+          {name:'Actions (C2)', link:'vocab', cat:'Actions', lvl:'c2'},
+        ]
+      },
+      { id:'pronunciation', icon:'🔊', title:'Pronunciation', type:'plain',
+        topics:[
+          {name:'Sophisticated prosody & rhythm'},
+          {name:'Emotional & pragmatic tone'},
+          {name:'Persuasive speech mastery'},
+          {name:'Decoding rapid natural speech'},
+          {name:'Dialect flexibility (RP, GenAm, AuE)'},
+        ]
+      },
+      { id:'communication', icon:'💬', title:'Native-Level Speech', type:'plain',
+        topics:[
+          {name:'Native-level conversation management'},
+          {name:'Turn-taking & interruption strategies'},
+          {name:'Fillers & discourse markers ("you know", "I mean", "sort of")'},
+          {name:'Improvisation & spontaneous speech'},
+          {name:'Storytelling fluency'},
+          {name:'Advanced debate rhetoric'},
+          {name:'Humour & wordplay in conversation'},
+        ]
+      },
+      { id:'writing', icon:'✍️', title:'Writing', type:'plain',
+        topics:[
+          {name:'Academic essays (publication level)'},
+          {name:'Abstracts & research language'},
+          {name:'Dialect & variation awareness'},
+          {name:'Editorial & opinion writing'},
+          {name:'Literary criticism'},
+          {name:'Mastery review across all skills'},
+        ]
+      },
+      { id:'listening', icon:'👂', title:'Advanced Listening', type:'plain',
+        topics:[
+          {name:'Collocations & phrases (native level)'},
+          {name:'Proverbs & idioms (full range)'},
+          {name:'Semantic nuance & connotation'},
+          {name:'Dialectal & regional vocabulary'},
+          {name:'Literary & archaic vocabulary'},
+        ]
+      },
+    ]
+  },
+];
+
+// ── Config ──
+const sylLevelMeta = {
+  starter:{color:'var(--teal)',bg:'var(--teal-light)'},
+  a1:{color:'var(--blue)',bg:'var(--blue-light)'},
+  a2:{color:'var(--amber)',bg:'var(--amber-light)'},
+  b1:{color:'#B84A0F',bg:'#FFF0EB'},
+  b2:{color:'var(--violet)',bg:'var(--violet-light)'},
+  c1:{color:'var(--red)',bg:'var(--red-light)'},
+  c2:{color:'#8A6800',bg:'var(--gold-light)'},
+};
+
+let sylActivePage = 'index'; // 'index' | 'detail'
+let sylActiveLevel = null;
+let sylActiveSection = null;
+let sylSearchActive = false;
+
+// ── Sub-page navigation ──
+function sylGoIndex(){
+  sylActivePage = 'index';
+  document.getElementById('syl-index').classList.add('active');
+  document.getElementById('syl-detail').classList.remove('active');
+  document.getElementById('syl-breadcrumb').innerHTML = '<span class="bc-cur">📋 Full Syllabus</span>';
+  const si = document.getElementById('syl-search-input');
+  if(si) si.value='';
+  document.getElementById('syl-search-results').style.display='none';
+  sylSearchActive = false;
+}
+
+function sylGoDetail(levelKey){
+  sylActiveLevel = levelKey;
+  sylActivePage = 'detail';
+  document.getElementById('syl-index').classList.remove('active');
+  document.getElementById('syl-detail').classList.add('active');
+
+  const lv = sylData.find(l=>l.key===levelKey);
+  // breadcrumb
+  document.getElementById('syl-breadcrumb').innerHTML =
+    `<button class="bc-link" onclick="sylGoIndex()">📋 Full Syllabus</button>
+     <span class="bc-sep">›</span>
+     <span class="bc-cur">${lv.emoji} ${lv.label}</span>`;
+
+  // hero
+  const totalTopics = lv.sections.reduce((a,s)=>a+s.topics.length,0);
+  const linkedCount = lv.sections.reduce((a,s)=>a+s.topics.filter(t=>t.link).length,0);
+  document.getElementById('syl-detail-hero').innerHTML = `
+    <div class="syl-detail-emoji">${lv.emoji}</div>
+    <div>
+      <div style="margin-bottom:6px"><span class="badge ${lv.key}">${lv.key.toUpperCase()}</span></div>
+      <div class="syl-detail-title">${lv.label}</div>
+      <div class="syl-detail-sub">${lv.desc}</div>
+      <div class="syl-detail-stats">
+        <span class="syl-stat-pill" style="background:${lv.bg};color:${lv.color};border-color:${lv.color}33">${lv.sections.length} Sections</span>
+        <span class="syl-stat-pill" style="background:${lv.bg};color:${lv.color};border-color:${lv.color}33">${totalTopics} Topics</span>
+        <span class="syl-stat-pill" style="background:var(--green-light);color:var(--green);border-color:#a8d8b0">${linkedCount} Linked</span>
+      </div>
+    </div>`;
+
+  // build section tabs
+  const tabsEl = document.getElementById('syl-section-tabs');
+  tabsEl.innerHTML = lv.sections.map((sec,i)=>
+    `<button class="syl-stab${i===0?' active':''}" onclick="sylActivateSection('${sec.id}',this)">${sec.icon} ${sec.title}</button>`
+  ).join('');
+
+  // build section panels
+  const panelsEl = document.getElementById('syl-section-panels');
+  panelsEl.innerHTML = lv.sections.map((sec,i)=>
+    `<div class="syl-section-panel${i===0?' active':''}" id="syp-${levelKey}-${sec.id}">${buildSylSectionPanel(lv,sec)}</div>`
+  ).join('');
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function sylActivateSection(secId, btn){
+  const lv = sylData.find(l=>l.key===sylActiveLevel);
+  document.querySelectorAll('#syl-section-tabs .syl-stab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#syl-section-panels .syl-section-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(`syp-${sylActiveLevel}-${secId}`).classList.add('active');
+}
+
+// ── Build a section panel ──
+function buildSylSectionPanel(lv, sec){
+  if(sec.type==='grammar'){
+    return buildGrammarPanel(lv, sec);
+  } else if(sec.type==='vocab'){
+    return buildVocabPanel(lv, sec);
+  } else {
+    return buildPlainPanel(lv, sec);
+  }
+}
+
+function buildGrammarPanel(lv, sec){
+  // Show full grammar cards for topics that exist in grammarData
+  const lvGrammar = grammarData[lv.key] || [];
+  const linkedTopics = sec.topics.filter(t=>t.link==='grammar');
+  const unlinkedTopics = sec.topics.filter(t=>!t.link);
+
+  let html = '';
+
+  if(lvGrammar.length){
+    html += `<div class="syl-panel-heading">📐 Grammar Rules — Click to study</div>`;
+    html += lvGrammar.map(g=>`
+      <div class="syl-grammar-preview" onclick="sylGoGrammar('${lv.key}')">
+        <div class="syl-gp-title">
+          <span>${g.t}</span>
+          <span class="badge ${g.badge}" style="margin:0">${g.badge.toUpperCase()}</span>
+        </div>
+        <div class="syl-gp-rule">${g.rule}</div>
+        <div class="syl-gp-ex">${g.ex}</div>
+      </div>`).join('');
+    html += `<button class="syl-view-all-btn" onclick="sylGoGrammar('${lv.key}')">📐 View all ${lv.label} Grammar →</button>`;
+  }
+
+  if(unlinkedTopics.length){
+    html += `<div class="syl-panel-heading" style="margin-top:1.25rem">📋 Additional Grammar Topics</div>`;
+    html += `<div class="syl-plain-grid">`;
+    html += unlinkedTopics.map(t=>`
+      <div class="syl-plain-chip">
+        <span class="syl-plain-dot" style="background:${lv.dotColor}"></span>
+        <span>${t.name}</span>
+      </div>`).join('');
+    html += `</div>`;
+  }
+
+  return html;
+}
+
+function buildVocabPanel(lv, sec){
+  // Group vocab by category for this level
+  const lvVocab = vocabData.filter(v=>v.lvl===lv.key);
+  const cats = [...new Set(lvVocab.map(v=>v.cat))];
+
+  let html = '';
+
+  if(cats.length){
+    html += `<div class="syl-panel-heading">📚 Vocabulary by Category — Click to study</div>`;
+    // Show chips linking to vocab filtered by cat
+    html += `<div class="syl-chip-grid">`;
+    cats.forEach(cat=>{
+      const words = lvVocab.filter(v=>v.cat===cat);
+      html += `
+        <div class="syl-chip linkable" style="--chip-accent:${lv.dotColor}" onclick="sylGoVocab('${lv.key}','${cat}')">
+          <div class="syl-chip-icon" style="background:${lv.bg};color:${lv.color}">📚</div>
+          <div class="syl-chip-text">
+            <div class="syl-chip-name">${cat}</div>
+            <div class="syl-chip-meta">${words.length} word${words.length!==1?'s':''}</div>
+          </div>
+          <span class="syl-chip-arrow">→</span>
+        </div>`;
+    });
+    html += `</div>`;
+
+    // Preview first 4 words
+    html += `<div class="syl-panel-heading" style="margin-top:1rem">Preview words</div>`;
+    lvVocab.slice(0,6).forEach(v=>{
+      html += `
+        <div class="syl-vocab-row" onclick="sylGoVocab('${lv.key}','${v.cat}')">
+          <div>
+            <div class="syl-vr-word">${v.w}</div>
+            <div class="syl-vr-ipa">${v.ipa}</div>
+            <div class="syl-vr-def">${v.def}</div>
+          </div>
+          <div class="syl-vr-meta"><span class="badge ${lv.key}" style="margin:0">${v.cat}</span></div>
+        </div>`;
+    });
+    html += `<button class="syl-view-all-btn" onclick="sylGoVocab('${lv.key}',null)">📚 View all ${lv.label} Vocabulary →</button>`;
+  }
+
+  return html;
+}
+
+function buildPlainPanel(lv, sec){
+  let html = `<div class="syl-panel-heading">${sec.icon} ${sec.title} Topics</div>`;
+  html += `<div class="syl-plain-grid">`;
+  html += sec.topics.map(t=>`
+    <div class="syl-plain-chip">
+      <span class="syl-plain-dot" style="background:${lv.dotColor}"></span>
+      <span>${t.name}</span>
+    </div>`).join('');
+  html += `</div>`;
+  return html;
+}
+
+// ── Navigate from syllabus → grammar page ──
+function sylGoGrammar(levelKey){
+  goPage('grammar');
+  // activate the correct tab
+  setTimeout(()=>{
+    buildGrammarTabs();
+    buildGrammar(levelKey);
+    const tabs = document.querySelectorAll('#grammar-tabs .tab-btn');
+    tabs.forEach(b=>{ b.classList.toggle('active', b.textContent.toLowerCase().includes(levelKey)); });
+    // flash highlight
+    const firstCard = document.querySelector('#grammar-list .grammar-card');
+    if(firstCard){ firstCard.classList.add('hl-flash'); setTimeout(()=>firstCard.classList.remove('hl-flash'),1000); }
+  }, 80);
+}
+
+// ── Navigate from syllabus → vocabulary page ──
+function sylGoVocab(levelKey, catFilter){
+  goPage('vocab');
+  setTimeout(()=>{
+    // set level filter
+    vocabLevelFilter = levelKey;
+    document.querySelectorAll('#vocab-level-tabs .tab-btn').forEach(b=>{
+      b.classList.toggle('active', b.textContent.toLowerCase()===levelKey || (levelKey==='starter' && b.textContent==='All Levels' && false) || b.textContent.toUpperCase()===levelKey.toUpperCase() || (levelKey==='starter' && b.textContent==='Starter'));
+    });
+    // filter
+    filterVocab();
+    // scroll to first result
+    const first = document.querySelector('#vocab-list .vocab-entry');
+    if(first){ first.classList.add('hl-flash'); setTimeout(()=>first.classList.remove('hl-flash'),1000); }
+  }, 80);
+}
+
+// ── Build the index page level cards ──
+function buildSylIndex(){
+  const grid = document.getElementById('syl-level-cards');
+  if(!grid) return;
+  grid.innerHTML = sylData.map(lv=>{
+    const totalTopics = lv.sections.reduce((a,s)=>a+s.topics.length,0);
+    const linkedCount = lv.sections.reduce((a,s)=>a+s.topics.filter(t=>t.link).length,0);
+    const pillNames = lv.sections.map(s=>s.title).slice(0,4);
+    return `
+    <div class="syl-level-card" onclick="sylGoDetail('${lv.key}')">
+      <div class="syl-lc-header">
+        <div class="syl-lc-icon" style="background:${lv.bg};color:${lv.color}">${lv.emoji}</div>
+        <div>
+          <div class="syl-lc-title">
+            <span class="badge ${lv.key}" style="margin-bottom:0;margin-right:6px;vertical-align:middle">${lv.key.toUpperCase()}</span>${lv.label}
+          </div>
+          <div class="syl-lc-desc">${lv.desc}</div>
+        </div>
+      </div>
+      <div class="syl-lc-footer">
+        <div class="syl-lc-pills">
+          ${pillNames.map(n=>`<span class="syl-lc-pill">${n}</span>`).join('')}
+          ${lv.sections.length>4?`<span class="syl-lc-pill">+${lv.sections.length-4} more</span>`:''}
+        </div>
+        <span class="syl-lc-arrow">→</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Search across all syllabus data ──
+let sylSearchFilter = 'all';
+function sylSearch(q){
+  q = q.trim().toLowerCase();
+  const resEl = document.getElementById('syl-search-results');
+  const listEl = document.getElementById('syl-results-list');
+  if(!q){ resEl.style.display='none'; sylSearchActive=false; return; }
+  sylSearchActive = true;
+  resEl.style.display = 'block';
+
+  let results = [];
+  sylData.forEach(lv=>{
+    lv.sections.forEach(sec=>{
+      if(sylSearchFilter!=='all'){
+        const map = {grammar:'grammar',vocab:'vocab',skills:'plain'};
+        if(sec.type!==sylSearchFilter && !(sylSearchFilter==='skills'&&sec.type==='plain')) return;
+      }
+      sec.topics.forEach(t=>{
+        if(t.name.toLowerCase().includes(q)){
+          results.push({lv, sec, topic:t});
+        }
+      });
+    });
+  });
+
+  if(!results.length){
+    listEl.innerHTML = `<div style="padding:1rem;color:var(--text2);font-size:13px">No topics found for "<strong>${q}</strong>"</div>`;
+    return;
+  }
+
+  listEl.innerHTML = results.map(r=>{
+    const hasLink = r.topic.link==='grammar' || r.topic.link==='vocab';
+    const linkHtml = r.topic.link==='grammar'
+      ? `<button class="syl-view-all-btn" style="padding:6px 14px;font-size:11px;margin:0" onclick="event.stopPropagation();sylGoGrammar('${r.lv.key}')">→ Grammar</button>`
+      : r.topic.link==='vocab'
+      ? `<button class="syl-view-all-btn" style="padding:6px 14px;font-size:11px;margin:0" onclick="event.stopPropagation();sylGoVocab('${r.lv.key}',null)">→ Vocabulary</button>`
+      : '';
+    return `
+    <div class="syl-chip${hasLink?' linkable':''}" style="--chip-accent:${r.lv.dotColor};margin-bottom:7px;${hasLink?'cursor:pointer':''}" ${hasLink?`onclick="sylGoDetail('${r.lv.key}')"`:''}">
+      <div class="syl-chip-icon" style="background:${r.lv.bg};color:${r.lv.color}">${r.lv.emoji}</div>
+      <div class="syl-chip-text">
+        <div class="syl-chip-name">${r.topic.name}</div>
+        <div class="syl-chip-meta"><span class="badge ${r.lv.key}" style="margin:0;font-size:9px">${r.lv.key.toUpperCase()}</span> · ${r.sec.title}</div>
+      </div>
+      ${linkHtml}
+    </div>`;
+  }).join('');
+}
+
+function sylFilterSection(type, btn){
+  sylSearchFilter = type==='grammar'?'grammar':type==='vocab'?'vocab':type==='skills'?'skills':'all';
+  document.querySelectorAll('.syl-ctrl-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const q = document.getElementById('syl-search-input').value;
+  if(q) sylSearch(q);
+}
+
+// ── Init ──
+buildSylIndex();
 
 // Close modals on escape
 document.addEventListener('keydown',e=>{
